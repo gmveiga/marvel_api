@@ -1,4 +1,4 @@
-from flask import Blueprint
+from flask import Blueprint, render_template
 import requests
 import os
 from dotenv import load_dotenv
@@ -28,4 +28,4 @@ def index():
         get_character(spider_man_id)
     ]
 
-    return {'characters': characters}
+    return render_template("index.html", characters=characters)

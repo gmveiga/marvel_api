@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rick and Morty</title>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <div class="container">
+        {% for character in characters %}
+        <div class="character-container">
+            <img src="{{ character['thumbnail']['path'] }}/portrait_incredible.{{ character['thumbnail']['extension'] }}" alt="{{ character['name'] }}">
+            <ul>
+                <li class="character-name">{{ character["name"] }}</li>
+                <li class="comics-title"> 
+                    Comics:
+                </li>
+                <li class="li-container">
+                    <span class="property-value">
+                        {{ character['comics']['items'][4]['name'] }}
+                    </span>
+                </li>
+                <li class="li-container">
+                    <span class="property-value">
+                        {{ character['comics']['items'][-1]['name'] }}
+                    </span>
+                </li>
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
